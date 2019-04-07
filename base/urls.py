@@ -18,7 +18,10 @@ from django.urls import include, path
 
 urlpatterns = [
     path('', include('core.urls')),
+
     path('users/', include('users.urls')), # user path for all-auth
-    path('users/', include('django.contrib.auth.urls')), # user path for all-auth
+    #path('users/', include('django.contrib.auth.urls')), # user path for default all-auth
+    path('accounts/', include('allauth.urls')), # added for all-auth, replaces line above
+
     path('admin/', admin.site.urls),
 ]

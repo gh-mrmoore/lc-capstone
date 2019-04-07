@@ -9,7 +9,10 @@
     <p>Welcome user {{user.username}}!</p>
 {% else %}
     <h2>Log In</h2>
-    <p>You will need to <a href="{% url 'login' %}">log in</a> or <a href="{% url 'signup' %}">register</a> first!</p>
+    <p>You will need to <a href="{% url 'account_login' %}">log in</a> or:
+         <a href="{% url 'account_signup' %}">register</a> first!</p>
+    <hr />
+    <p><a href="{% provider_login_url 'google' %}">Log In with Gmail</a></p>
 {% endif %}
 
 <hr />

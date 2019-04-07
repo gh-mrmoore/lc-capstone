@@ -37,8 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize',    #added to help clean up some number formatting
-#    'django.contrib.sites',         #added for all-auth
+    'django.contrib.humanize',    # added to help clean up some number formatting
+    'django.contrib.sites',         # added for all-auth
+
+    'allauth',                               # added for all-auth
+    'allauth.account',                       # added for all-auth
+    'allauth.socialaccount',                 # added for all-auth
+    'allauth.socialaccount.providers.google', # added for all-auth
 
     'core',                        #houses generic pages for the project
     'users',                       #this will house the custom user model
@@ -138,3 +143,13 @@ STATICFILES_DIRS = (
 
 LOGIN_REDIRECT_URL = 'home'     #set for all-auth re-directs
 LOGOUT_REDIRECT_URL = 'home'    #set for all-auth re-directs
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
