@@ -1,0 +1,130 @@
+/*   Main CSS file for the 'home' django application   */
+
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    background-color: #000000;
+    font-family: sans-serif;
+}
+
+table, th, td, tr   
+{
+    border: 1px solid black;
+}
+
+.header
+{
+    background-color: #ffffff;
+    background-image: url('/static/img-base-banner.jpg');
+    /* height: 25%; */
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color: #ffffff;
+    text-shadow: 3px 2px #000000;
+    font-weight: bolder;
+    font-size: 250%;
+    text-align: right;
+    vertical-align: bottom;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.content
+{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.left
+{
+    order: 1;
+    flex: 25%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #d3d3d3;
+}
+
+.main
+{
+    order: 2;
+    flex: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.right
+{
+    order: 3;
+    flex: 25%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #d3d3d3;
+}
+
+.fa-ul
+{
+    color: #8b0000;
+}
+
+li
+{
+  padding-top: 2px;
+  padding-bottom: 1px;
+  vertical-align: middle;
+}
+
+i
+{
+  font-size: 110%;
+}
+.footer
+{
+    background-color: #8b0000;
+    color: #ffffff;
+    text-align: center;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+a
+{
+  padding-left: 5px;
+  text-decoration: none;
+  color: #8b0000;
+}
+
+a:hover
+{
+    background-color: #ffffff;
+}
+
+.weather, .conditions, .temperature
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.error
+{
+    color: #ff0000;
+    font-weight: bolder;
+    font-size: 105%;
+}
+
+
+@media screen and (max-width: 600px)
+{
+    .content {display: flex; flex-wrap: wrap; flex-direction: column;}
+    .header {font-size: 100%; padding-top: 8%; padding-bottom: 8%;}
+    .left {order: 2; flex: 100%; padding: 5px;}
+    .main {order: 1; flex: 100%; padding: 5px;}
+    .right {order: 3; flex: 100%; padding: 5px;}
+    .fa-ul {color: #8b0000;}
+    a {padding-left: 5px; text-decoration: none; color: #8b0000;}
+}

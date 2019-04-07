@@ -1,0 +1,49 @@
+{% load static %}
+{% load staticfiles %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static '/css-base-main.css' %}">
+    <title>{% block title %}Family Planner || matthewmoore.pro{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <div class="header">Moore for the Family</div>
+    </header>
+    
+    <div class="content">
+        <div class="left">
+            <span class="weather">
+                <span class="conditions">
+                    <img src="{{weather.1}}" title="{{weather.0}}" alt="{{weather.0}}" />
+                </span>
+                <span class="temperature">
+                    {{ weather.2|floatformat:1 }}&deg;
+                </span>
+            </span>
+            <hr />
+            {% include "base-nav-site.html" %}
+            <hr />
+        </div>
+    
+        <div class="main">
+            {% block content %}
+            {% endblock %}
+        </div>
+        
+        <div class="right">
+            {% include "base-nav-useful.html" %}
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">&copy; Matthew Moore, 2019</div>
+    </footer>
+</body>
+</html>

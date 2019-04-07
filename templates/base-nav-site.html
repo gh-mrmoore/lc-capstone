@@ -1,0 +1,63 @@
+{% if user.is_authenticated %}
+
+<ul class="fa-ul">
+    <li><span class="fa-li"><i class="fas fa-home"></i></span>
+        <a href="/">Home</a></li>
+
+<!-- Links for the Finances App -->
+    <li><span class="fa-li"><i class="fas fa-file-invoice-dollar"></i></span>
+        <a href="/finances" title="Family Finance Manager">Finances</a>
+        <ul class="fa-ul" style="margin-left: 11px;">
+            <li><span class="fa-li"><i class="fas fa-file-invoice"></i></span>
+                <a href="/finances/accounts">Accounts</a></li>
+            <li><span class="fa-li"><i class="fas fa-info"></i></span>
+                <a href="/finances/transactions">All Transactions</a></li>
+        </ul>
+    </li>
+
+<!-- Links for the Kids App -->
+    <li><span class="fa-li"><i class="fas fa-child"></i></span>
+        <a href="/kids">Kids</a>
+        <ul class="fa-ul" style="margin-left: 11px;">
+            <li><span class="fa-li"><i class="fas fa-file-alt"></i></span>
+                <a href="/kids/detail/1">Detail for Thomas</a></li>
+            <li><span class="fa-li"><i class="fas fa-plus-circle"></i></span>
+                <a href="/kids/add/1">Add for Thomas</a></li>
+            <li><span class="fa-li"><i class="fas fa-file-alt"></i></span>
+                <a href="/kids/detail/2">Detail for Andrew</a></li>
+                    <li><span class="fa-li"><i class="fas fa-plus-circle"></i></span>
+                <a href="/kids/add/2">Add for Andrew</a></li>
+            </ul>
+    </li>
+
+<!-- Links for the Shopping App -->
+    <li><span class="fa-li"><i class="fas fa-shopping-basket"></i></span>
+        <a href="/shopping" title="See items listed in database">Shopping</a>
+        <ul class="fa-ul" style="margin-left: 11px;">
+            <li><span class="fa-li"><i class="fas fa-file-alt"></i></span>
+                <a href="/shopping/items">All Items</a></li>
+            <li><span class="fa-li"><i class="fas fa-plus-circle"></i></span>
+                <a href="/shopping/additem" title="Add Item to Shopping List">Add Item</a></li>
+            <li><span class="fa-li"><i class="fas fa-store-alt"></i></span>
+                <a href="/shopping/stores" title="See stores listed in database">Stores</a>
+            <li><span class="fa-li"><i class="fas fa-plus-circle"></i></span>
+                <a href="/shopping/addstore" title="Add a new store">Add Store</a></li>
+        </ul>
+    </li>
+
+    </li>
+
+<!-- Link(s) to sign out of the application -->
+    <li><span class="fa-li"><i class="fas fa-sign-out-alt"></i></span>
+        <a href="{% url 'logout' %}">Log Out</a></li>
+    </ul>
+
+{% else %}
+<!-- Links to log-in or register for the site -->
+    <ul class="fa-ul">
+        <li><span class="fa-li"><i class="fas fa-sign-in-alt"></i></span>
+            <a href="/">Log In</a></li>
+        <li><span class="fa-li"><i class="fas fa-user-plus"></i></span>
+            <a href="{% url 'signup' %}">Register</a></li>
+    </ul>
+{% endif %}
