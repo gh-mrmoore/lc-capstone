@@ -1,0 +1,39 @@
+{% extends "shopping/shopping-base.html" %}
+
+{% block content %}
+<h2>STORE</h2>
+<p>Store selected: {{pk}}</p>
+{% if selected_store %}
+<p>Item PK: {{selected_store.storeID}}</p>
+<table style="width: 100%;">
+    <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Remove</th>
+    </tr>
+    <tr>
+        <td>{{selected_store.storeName}}</td>
+        <td>{{selected_store.storeLocation}}</td>
+        <td>{{selected_store.storeStreet}}</td>
+        <td>{{selected_store.storeCity}}</td>
+        <td>{{selected_store.storeState}}</td>
+        <td>{{selected_store.storeZip}}</td>
+        <td>
+            <form action="/shopping/store_delete" method="POST" style="display: inline-block;">
+                {% csrf_token %}
+                <input type="hidden" name="store_id" value='{{selected_store.storeID}}'' />
+                <input type="submit" value="Remove!" />
+            </form>
+        </td>
+    </tr>
+</table>
+{% else %}
+<p>No items currently added to shopping list.</p>
+{% endif %}
+
+
+{% endblock %}

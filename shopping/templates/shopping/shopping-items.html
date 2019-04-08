@@ -1,0 +1,27 @@
+{% extends "shopping/shopping-base.html" %}
+
+{% block content %}
+<h2>ITEMS</h2>
+{% if items_needed %}
+<table style="width: 100%;">
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Store</th>
+        <th>Detail</th>
+    </tr>
+    {% for item in items_needed %}
+    <tr>
+        <td>{{item.itemName}}</td>
+        <td>{{item.itemQuantity}}</td>
+        <td>{{item.itemStore.storeName}} - {{item.itemStore.storeLocation}}</td>
+        <td><a href="/shopping/items/{{item.itemID}}">Detail</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No items currently added to shopping list.</p>
+{% endif %}
+
+
+{% endblock %}

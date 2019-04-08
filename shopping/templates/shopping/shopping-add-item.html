@@ -1,0 +1,33 @@
+{% extends "shopping/shopping-base.html" %}
+
+{% block content %}
+    {% if c_stores %}
+        <form action="/shopping/additem" method="POST">
+            {% csrf_token %}
+            <label for="additemname">Item Name:</label><br />
+            <input type="text" name="additemname" id="additemname" />
+            <hr />
+
+            <label for="additemdescription">Item Description:</label><br />
+            <input type="text" name="additemdescription" id="additemdescription" />
+            <hr />
+
+            <label for="additemquantity">Item Quantity:</label><br />
+            <input type="text" name="additemquantity" id="additemquantity" />
+            <hr />
+
+            <label for="additemstore">Store:</label><br />
+            <select name="additemstore" id="additemstore">
+                {% for store in c_stores %}
+                    <option value="{{store.storeID}}">{{store.storeName}} - {{store.storeLocation}}</option>
+                {% endfor %}
+            </select>
+            <p><a href="/shopping/addstore">Don't see the store you need? Add it now!</a></p>
+            <hr />
+
+            <input type="submit" value="Add Item" />
+        </form>
+    {% else %}
+        <p>No stores entered yet. <a href="/shopping/addstore">Please add some</a>.</p>
+    {% endif %}
+{% endblock %}

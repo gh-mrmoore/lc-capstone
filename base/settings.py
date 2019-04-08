@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'core',                        #houses generic pages for the project
     'users',                       #this will house the custom user model
     'kids',                        #this app houses the code for tracking the kids activities
+    'shopping',                    #this app houses the code for managing a shopping list
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser' # added for use with all-auth

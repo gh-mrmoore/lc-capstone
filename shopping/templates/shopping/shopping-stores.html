@@ -1,0 +1,27 @@
+{% extends "shopping/shopping-base.html" %}
+
+{% block content %}
+<h2>STORES</h2>
+{% if current_stores %}
+    <table style="width: 100%">
+        <tr>
+            <th>Store Name</th>
+            <th>Store Location</th>
+            <th>More Details</th>
+        </tr>
+        {% for store in current_stores %}
+        <tr>
+            <td>{{store.storeName}}</td>
+            <td>{{store.storeLocation}}</td>
+            <td><a href="/shopping/stores/{{store.storeID}}">More</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% else %}
+    <p>No stores currently in database.</p>
+{% endif %}
+
+<p><a href="/shopping/addstore">Add a store.</a></p>
+
+{% endblock %}

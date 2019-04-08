@@ -1,0 +1,35 @@
+{% extends "shopping/shopping-base.html" %}
+
+{% block content %}
+<h2>ITEM</h2>
+{% if selected_item %}
+<table style="width: 100%;">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Added</th>
+        <th>Store</th>
+        <th>Purchased</th>
+    </tr>
+    <tr>
+        <td>{{selected_item.itemName}}</td>
+        <td>{{selected_item.itemDescription}}</td>
+        <td>{{selected_item.itemQuantity}}</td>
+        <td>{{selected_item.itemAdded|date:'m/d/Y'}}</td>
+        <td>{{selected_item.itemStore.storeName}} - {{selected_item.itemStore.storeLocation}}</td>
+        <td>
+            <form action="/shopping/item_delete" method="POST" style="display: inline-block;">
+                {% csrf_token %}
+                <input type="hidden" name="item_id" value='{{selected_item.itemID}}'' />
+                <input type="submit" value="Purchased!" />
+            </form>
+        </td>
+    </tr>
+</table>
+{% else %}
+<p>No items currently added to shopping list.</p>
+{% endif %}
+
+
+{% endblock %}

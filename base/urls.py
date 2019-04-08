@@ -24,6 +24,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')), # added for all-auth, replaces line above
 
     path('kids/', include('kids.urls')),        #added for the kids event tracker
+    path('shopping/', include('shopping.urls')), #added for the shopping list
 
     path('admin/', admin.site.urls),
 ]

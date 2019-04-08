@@ -1,0 +1,26 @@
+{% extends "shopping/shopping-base.html" %}
+
+{% block content %}
+    <form action="/shopping/addstore" method="POST">
+        {% csrf_token %}
+        <label for="addstorename">Store Name:</label><br />
+        <input type="text" name="addstorename" id="addstorename" />
+        <hr />
+        <label for="addstorelocation">Store Location:</label><br />
+        <input type="text" name="addstorelocation" id="addstorelocation" />
+        <hr />
+        <label for="addstorestreet">Street Address:</label><br />
+        <input type="text" name="addstorestreet" id="addstorestreet" />
+        <hr />
+        <label for="addstorecity">City:</label><br />
+        <input type="text" name="addstorecity" id="addstorecity" />
+        <hr />
+        <label for="addstorestate">State:</label><br />
+        <input type="text" name="addstorestate" id="addstorestate" />
+        <hr />
+        <label for="addstorezip">Zip Code:</label><br />
+        <input type="text" name="addstorezip" id="addstorezip" />
+        <hr />
+        <input type="submit" value="Add Store" />
+    </form>
+{% endblock %}
