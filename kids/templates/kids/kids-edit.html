@@ -1,0 +1,16 @@
+{% extends "kids/kids-base.html" %}
+
+{% block content %}
+<h2>Edit Event at {{get_event.eventsDate|time}} on {{get_event.eventsDate|date:'m/d/Y'}}</h2>
+
+    <form action="/kids/edit/{{get_event.eventsID}}" method="POST">
+        {% csrf_token %}
+        <label for="edit_gen_note">General Note:</label><br />
+        <input type="text" name="edit_gen_note" id="edit_gen_note" value="{{get_event.eventsGenNote}}" />
+        <hr />
+        <label for="edit_ext_note">Extended Note:</label><br />
+        <textarea name="edit_ext_note" id="edit_ext_note">{{get_event.eventsExtendedNote}}</textarea>
+        <hr />
+        <input type="submit" value="Edit Event" />
+    </form>
+{% endblock %}

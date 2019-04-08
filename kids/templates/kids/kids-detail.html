@@ -1,0 +1,30 @@
+{% extends "kids/kids-base.html" %}
+
+{% block content %}
+    <h2>Event Details for {{pick_kid.kidName}}</h2>
+    {% if kid_events %}
+        <p>There are events for {{pick_kid.kidName}}.</p>
+        <table style="width: 100%;">
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Short Note</th>
+                <th>Long Note</th>
+                <th>Change</th>
+            </tr>
+        {% for event in kid_events %}
+            <tr>
+                <td>{{event.eventsDate|date:'m/d/Y'}}</td>
+                <td>{{event.eventsTime|time}}</td>
+                <td>{{event.eventsGenNote}}</td>
+                <td>{{event.eventsExtendedNote}}</td>
+                <td><a href="/kids/edit/{{event.eventsID}}">Edit</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <p>There are no events for this kid.</p>
+    {% endif %}
+    <span style="font-size: 200%;"><a href="/kids/add/{{kpk}}" title="Add Something for {{pick_kid.kidName}}"><i class="fas fa-plus-circle"></i></a></span>
+    
+{% endblock %}

@@ -23,5 +23,7 @@ urlpatterns = [
     #path('users/', include('django.contrib.auth.urls')), # user path for default all-auth
     path('accounts/', include('allauth.urls')), # added for all-auth, replaces line above
 
+    path('kids/', include('kids.urls')),        #added for the kids event tracker
+
     path('admin/', admin.site.urls),
 ]
