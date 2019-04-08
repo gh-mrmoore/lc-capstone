@@ -86,3 +86,35 @@ def addline(request, bank_id):
                     'right_now': right_now, 
                     'most_recent_balance': most_recent_balance}
         return render(request, 'finances/finances-transactions-add.html', context)
+
+def editline(request, line_id):
+    if request.method == 'POST':
+        #get the current line ID from the url path
+        edit_this_line = get_object_or_404(Line, pk=line_id)
+        edit_this_catID = request.POST['category']
+        edit_this_lcat = get_object_or_404(LCat, pk=edit_this_catID)
+
+        edit_line = Line()
+        edit_line.lineID = edit_this_line.lineID
+        edit_line.lineDT = edit_this_line.lineDT
+        edit_line.lineAmount = float(request.POST['new_amount'])
+        edit_line.lineShort = request.POST['new_line_short']
+        edit_line.lineLong = request.POST['new_line_long']
+        edit_line.lineCategory = edit_this_lcat
+        edit_line.lineBank = edit_this_line.lineBank
+        edit_line.lineBalance = edit_this_line.lineBalance    #need a calculation here instead
+
+        edit_line.save(force_update=True)
+
+        return HttpResponseRedirect('/finances/banks')
+    else:
+        #get the current line transaction
+        current_line = get_object_or_404(Line, pk=line_id)
+
+        #get all the categories available
+        edit_categories = LCat.objects.order_by('lcatDesc')
+
+        #send information to the template and render it
+        context = {'current_line': current_line,
+                    'edit_categories': edit_categories}
+        return render(request, 'finances/finances-transactions-edit.html', context)

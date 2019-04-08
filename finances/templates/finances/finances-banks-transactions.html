@@ -21,7 +21,7 @@
                 <td>$ {{ line.lineAmount|floatformat:2 }}</td>
                 <td>{{ line.lineCategory.lcatDesc }}</td>
                 <td>$ {{ line.lineBalance|floatformat:2 }}</td>
-                <td>Details</td>
+                <td><a href="/finances/transactions/edit/{{ line.lineID }}">Edit</a></td>
             </tr>
         {% endfor %}
     </table>

@@ -1,0 +1,29 @@
+{% extends "finances/finances-base.html" %}
+
+{% block content %}
+<h2>Edit Transaction</h2>
+
+    <form action="/finances/transactions/edit/{{current_line.lineID}}/" method="POST">
+        {% csrf_token %}
+        <label for="new_amount">New Amount:</label><br />
+        <input type="text" name="new_amount" id="new_amount" value="{{current_line.lineAmount}}" />
+        <hr />
+
+        <label for="new_line_short">Short Note:</label><br />
+        <input type="text" name="new_line_short" id="new_line_short" value="{{current_line.lineShort}}" />
+        <hr />
+
+        <label for="new_line_long">Longer Note:</label><br />
+        <textarea name="new_line_long" id="new_line_long">{{current_line.lineLong}}</textarea>
+        <hr />
+
+        <select name="category">
+            {% for category in edit_categories %}
+            <option value="{{ category.lcatID }}">{{ category.lcatDesc }}</option>
+            {% endfor %}
+        </select>
+        <hr />
+
+        <input type="submit" value="Update Transaction" />
+    </form>
+{% endblock %}

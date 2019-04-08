@@ -11,6 +11,7 @@
             <th>Amount</th>
             <th>Category</th>
             <th>Notes:</th>
+            <td>Edit</td>
         </tr>
         {% for transaction in transactions %}
             <tr>
@@ -19,6 +20,7 @@
                 <td>{{ transaction.lineAmount }}</td>
                 <td>{{ transaction.lineCategory.lcatDesc }}</td>
                 <td>{{ transaction.lineLong }}</td>
+                <td><a href="/finances/transactions/edit/{{ line.lineID }}">Edit</a></td>
             </tr>
         {% endfor %}
     </table>

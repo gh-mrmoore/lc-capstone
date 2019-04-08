@@ -11,6 +11,7 @@ urlpatterns = [
     path('transactions', views.TransactionView.as_view(), name='transacts'), 
     #switching to function-based views since class-based
     #form views are eluding me at the moment
-    path('transactions/add', views.addline, name='line-add'), 
+    #path('transactions/add', views.addline, name='line-add'), 
     path('transactions/add/<int:bank_id>/', views.addline, name='line-update'), 
+    path('transactions/edit/<int:line_id>/', views.editline, name='line-edit'), 
 ]
