@@ -1,0 +1,26 @@
+{% extends "finances/finances-base.html" %}
+
+{% block content %}
+    <h1>Finances</h1>
+    <h2>All Transactions</h2>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Short Description</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Notes:</th>
+        </tr>
+        {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.lineDT }}</td>
+                <td>{{ transaction.lineShort }}</td>
+                <td>{{ transaction.lineAmount }}</td>
+                <td>{{ transaction.lineCategory.lcatDesc }}</td>
+                <td>{{ transaction.lineLong }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

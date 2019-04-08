@@ -1,0 +1,29 @@
+{% extends "finances/finances-base.html" %}
+
+{% block content %}
+    <h1>Finances</h1>
+    <h2>Account: {{ get_bank.bankName }} - {{ get_bank.bankLocation }}</h2>
+
+    <span style="font-size: 200%;"><a href="/finances/transactions/add/{{ get_bank.bankID }}" title="Add Something for {{ get_bank.bankName }}"><i class="fas fa-plus-circle"></i></a></span>
+    <table style="width: 100%;">
+        <tr>
+            <th>Date</th>
+            <th>Short Description</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Current Balance</th>
+            <th>More</th>
+        </tr>
+        {% for line in bank_transactions %}
+            <tr>
+                <td>{{ line.lineDT|date:'m/d/Y' }}</td>
+                <td>{{ line.lineShort }}</td>
+                <td>$ {{ line.lineAmount|floatformat:2 }}</td>
+                <td>{{ line.lineCategory.lcatDesc }}</td>
+                <td>$ {{ line.lineBalance|floatformat:2 }}</td>
+                <td>Details</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

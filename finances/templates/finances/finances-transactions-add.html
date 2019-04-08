@@ -1,0 +1,30 @@
+{% extends "finances/finances-base.html" %}
+
+{% block content %}
+<h2>Add Transaction for {{current_bank.bankName}}</h2>
+<p>Most recent transaction ending balance: {{ most_recent_balance }}</p>
+
+    <form action="/finances/transactions/add/{{bank_id}}/" method="POST">
+        {% csrf_token %}
+        <label for="date">Date & Time</label><br />
+        <input type="text" name="date" id="date" value="{{ right_now }}" />
+        <hr />
+        <label for="amount">Amount</label><br />
+        <input type="text" name="amount" id="amount" />
+        <input type="hidden" name="ramount" id="ramount" value="{{ most_recent_balance }}" />
+        <hr />
+        <label for="short_note">Short Note:</label><br />
+        <input type="text" name="short_note" id="short_note" />
+        <hr />
+        <label for="long_note">Longer Note:</label><br />
+        <textarea name="long_note" id="long_note"></textarea>
+        <hr />
+        <select name="category">
+            {% for category in current_categories %}
+            <option value="{{ category.lcatID }}">{{ category.lcatDesc }}</option>
+            {% endfor %}
+        </select>
+        <hr />
+        <input type="submit" value="Add Transaction" />
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "finances/finances-base.html" %}
+
+{% block content %}
+    <h1>Finances</h1>
+    <h2>Bank Accounts</h2>
+    {% if all_listed_banks %}
+        <ul>
+        {% for bank in all_listed_banks %}
+            <li><a href="/finances/banks/{{ bank.bankID }}">{{ bank.bankName }} - {{bank.bankLocation}}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No bank accounts registered.</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "finances/finances-base.html" %}
+
+{% block content %}
+<h2>Add Event for {{current_kid.kidName}}</h2>
+
+    <form action="/kids/add/{{kidpk}}" method="POST">
+        {% csrf_token %}
+        <label for="gen_note">General Note:</label><br />
+        <input type="text" name="gen_note" id="gen_note" />
+        <hr />
+        <label for="ext_note">Extended Note:</label><br />
+        <textarea name="ext_note" id="ext_note"></textarea>
+        <hr />
+        <input type="submit" value="Add Event" />
+    </form>
+{% endblock %}

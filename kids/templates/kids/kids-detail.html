@@ -1,9 +1,8 @@
 {% extends "kids/kids-base.html" %}
 
 {% block content %}
-    <h2>Event Details for {{pick_kid.kidName}}</h2>
+    <h2>Event Details for {{pick_kid.kidName}} <span style="font-size: 200%;"><a href="/kids/add/{{kpk}}" title="Add Something for {{pick_kid.kidName}}"><i class="fas fa-plus-circle"></i></a></span></h2>
     {% if kid_events %}
-        <p>There are events for {{pick_kid.kidName}}.</p>
         <table style="width: 100%;">
             <tr>
                 <th>Date</th>
@@ -25,6 +24,6 @@
     {% else %}
         <p>There are no events for this kid.</p>
     {% endif %}
-    <span style="font-size: 200%;"><a href="/kids/add/{{kpk}}" title="Add Something for {{pick_kid.kidName}}"><i class="fas fa-plus-circle"></i></a></span>
+    
     
 {% endblock %}

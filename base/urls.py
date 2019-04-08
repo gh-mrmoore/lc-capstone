@@ -23,8 +23,9 @@ urlpatterns = [
     #path('users/', include('django.contrib.auth.urls')), # user path for default all-auth
     path('accounts/', include('allauth.urls')), # added for all-auth, replaces line above
 
-    path('kids/', include('kids.urls')),        #added for the kids event tracker
+    path('kids/', include('kids.urls')),         #added for the kids event tracker
     path('shopping/', include('shopping.urls')), #added for the shopping list
+    path('finances/', include('finances.urls')), #add for the financial tracker
 
     path('admin/', admin.site.urls),
 ]
