@@ -103,6 +103,9 @@ def editline(request, line_id):
         edit_line.lineCategory = edit_this_lcat
         edit_line.lineBank = edit_this_line.lineBank
         edit_line.lineBalance = edit_this_line.lineBalance    #need a calculation here instead
+        #need to handle the balance mathematics on the template side or
+        #some other way since an edit too far upstream would require too
+        #many downstream changes to update through the view here
 
         edit_line.save(force_update=True)
 
