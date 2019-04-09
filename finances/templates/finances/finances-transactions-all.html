@@ -20,7 +20,7 @@
                 <td>{{ transaction.lineAmount }}</td>
                 <td>{{ transaction.lineCategory.lcatDesc }}</td>
                 <td>{{ transaction.lineLong }}</td>
-                <td><a href="/finances/transactions/edit/{{ line.lineID }}">Edit</a></td>
+                <td><a href="/finances/transactions/edit/{{ transaction.lineID }}">Edit</a></td>
             </tr>
         {% endfor %}
     </table>
