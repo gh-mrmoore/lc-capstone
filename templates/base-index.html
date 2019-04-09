@@ -10,7 +10,11 @@
 
 <hr />
 {% if user.is_authenticated %}
-    <p>Welcome user {{user.username}}!</p>
+    {% if user.first_name %}
+        <p>Welcome {{user.first_name}}!</p>
+    {% else %}
+        <p>Welcome user {{user.username}}!</p>
+    {% endif %}
 {% else %}
     <h2>Log In</h2>
     <p>You will need to <a href="{% url 'account_login' %}">log in</a> or: <a href="{% url 'account_signup' %}">register</a> first!</p>
