@@ -26,7 +26,7 @@ SECRET_KEY = 'eb_7#4b6v=$ixoi-io-ibm*ri7!i2sw3$s0mp1&dvb!bzr@#0t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [moore-family.herokuapp.com]
+ALLOWED_HOSTS = []
 
 
 # Application definition
