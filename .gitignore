@@ -1,5 +1,10 @@
 # things I'll add
+#some place for notes and cut code
 scratch/
+.vscode/
+
+#virtual environment
+djv/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

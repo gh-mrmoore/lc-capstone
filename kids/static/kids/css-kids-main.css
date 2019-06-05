@@ -121,6 +121,4 @@ a:hover
     .main {flex: 100%; padding: 5px;}
     .right {display: none;}
     .switch {flex: 100%; padding: 5px; display: block; background-color: #d3d3d3;}
-    .fa-ul {color: #4b0082;}
-    a {padding-left: 5px; text-decoration: none; color: #4b0082;}
 }
